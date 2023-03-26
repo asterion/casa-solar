@@ -79,8 +79,18 @@ return [
 Crear el modelo de datos en la base de datos con Yii 2. Ejecutar migrate de Yii
 en el mismo directorio del proyecto.
 
-Se cargar el modelo de datos y los datos pruebas.
-
 ```
 php yii migrate
+```
+
+Cargar los datos de pruebas
+
+```
+php yii fixture/load "*"
+```
+
+Correr servidor de pruebas
+
+```
+php yii serve
 ```
