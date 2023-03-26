@@ -16,3 +16,27 @@ postulaciones (sin establecer aún), las comunas dejarán de recibir postulacion
 y la región se cerrará si llega a una cantidad máxima de postulaciones (esto significa que cerrará todas las
 comunas independientemente de su cantidad de postulaciones). Cabe destacar que estos procesos de control de
 apertura y cierre de comunas debe ser automático.
+
+
+SOLUCIÓN
+--------
+
+Modelo de datos
+
+| Tablas                       | Descripción |
+|------------------------------|-------------|
+| program                      |Representa programa con un nombre y descripción|
+| call_for_application         |Representa el o los procesos de postulación a un programas definiendo un máximo de postulantes y una columna para indicar activar o desactivar el proceso de postulación|
+| commune                      |Representa las comunas del país|
+| grant_application            |Representa a los registros de postulantes a los programas, registra email, comuna y al proceso que postula.|
+| call_for_application_commune |Define los limites de postulación por comuna a los procesos de postulación.|
+| call_grant_application_view  |Una vista para ver el máximo de postulantes versus la cantidad de postulantes ya registrados|
+
+Páginas
+
+| URL | Descripción |
+|-----|-------------|
+| http://localhost:8080/site/index | Lista los todos los procesos de postulación indicando cuales son procesos abiertos y cuales ya están cerrados por cupos completados o por estar desactivados arbitrariamente(active) |
+| http://localhost:8080/site/postular/ID | Formulario de registro a proceso de postulación. |
+| http://localhost:8080/site/postular/ID | La misma página de registro se usa como página de agradecimiento y éxito al registrarse. |
+| http://localhost:8080/site/postulaciones | Listado de los usuarios registrados en los programas. |
