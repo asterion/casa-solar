@@ -30,6 +30,7 @@ Modelo de datos
 | commune                      |Representa las comunas del país con su nombre|
 | grant_application            |Representa los registros de postulantes a los procesos de postulación, registra email, comuna y el proceso que postula el usuario.|
 | call_for_application_commune |Define los limites de postulación por comuna a los procesos de postulación.|
+| call_for_application_stage   |Representa las etapas por cual pasa un proceso de postulación|
 | call_grant_application_view  |Una vista para ver el máximo de postulantes versus la cantidad de postulantes ya registrados|
 
 Páginas
@@ -64,15 +65,10 @@ Configurar el acceso a de Yii 2 a la base de datos recien creada en el archivo
 
 return [
     'class'    => 'yii\db\Connection',
-    'dsn'      => 'mysql:host=localhost;dbname=agenciase',
+    'dsn'      => 'mysql:host=localhost;dbname=casasolar',
     'username' => 'root',
-    'password' => 'root',
+    'password' => '!c@mb1@r.,!',
     'charset'  => 'utf8',
-
-    // Schema cache options (for production environment)
-    //'enableSchemaCache' => true,
-    //'schemaCacheDuration' => 60,
-    //'schemaCache' => 'cache',
 ];
 ```
 
