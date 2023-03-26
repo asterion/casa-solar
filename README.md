@@ -25,10 +25,10 @@ Modelo de datos
 
 | Tablas                       | Descripción |
 |------------------------------|-------------|
-| program                      |Representa programa con un nombre y descripción|
-| call_for_application         |Representa el o los procesos de postulación a un programas definiendo un máximo de postulantes y una columna para indicar activar o desactivar el proceso de postulación|
-| commune                      |Representa las comunas del país|
-| grant_application            |Representa a los registros de postulantes a los programas, registra email, comuna y al proceso que postula.|
+| program                      |Representa los programas con un nombre y descripción.|
+| call_for_application         |Representa el o los procesos de postulaciónes a los programas, se puede definir un máximo de postulantes e indicar si la postulación esta activa o desactivada|
+| commune                      |Representa las comunas del país con su nombre|
+| grant_application            |Representa los registros de postulantes a los procesos de postulación, registra email, comuna y el proceso que postula el usuario.|
 | call_for_application_commune |Define los limites de postulación por comuna a los procesos de postulación.|
 | call_grant_application_view  |Una vista para ver el máximo de postulantes versus la cantidad de postulantes ya registrados|
 
@@ -40,3 +40,47 @@ Páginas
 | http://localhost:8080/site/postular/ID | Formulario de registro a proceso de postulación. |
 | http://localhost:8080/site/postular/ID | La misma página de registro se usa como página de agradecimiento y éxito al registrarse. |
 | http://localhost:8080/site/postulaciones | Listado de los usuarios registrados en los programas. |
+
+INSTALACIÓN
+-----------
+
+Clonar el repositorio "casa-solar" desde *https://github.com/asterion/casa-solar*
+
+```
+git clone git@github.com:asterion/casa-solar.git
+```
+
+Crear una base de datos en MySQL o MariaDB
+
+```
+CREATE DATABASE casasolar;
+```
+
+Configurar el acceso a de Yii 2 a la base de datos recien creada en el archivo
+*config/db.php* que se encuentra en el directorio creado al clonar el repositorio.
+
+```
+<?php
+
+return [
+    'class'    => 'yii\db\Connection',
+    'dsn'      => 'mysql:host=localhost;dbname=agenciase',
+    'username' => 'root',
+    'password' => 'root',
+    'charset'  => 'utf8',
+
+    // Schema cache options (for production environment)
+    //'enableSchemaCache' => true,
+    //'schemaCacheDuration' => 60,
+    //'schemaCache' => 'cache',
+];
+```
+
+Crear el modelo de datos en la base de datos con Yii 2. Ejecutar migrate de Yii
+en el mismo directorio del proyecto.
+
+Se cargar el modelo de datos y los datos pruebas.
+
+```
+php yii migrate
+```
