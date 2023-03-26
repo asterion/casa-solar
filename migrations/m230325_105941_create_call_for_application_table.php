@@ -33,10 +33,6 @@ class m230325_105941_create_call_for_application_table extends Migration
             'id',
             'CASCADE'
         );
-
-        $sql = 'INSERT INTO {{%call_for_application}} SELECT NULL AS id, id AS program_id, 1 AS active, 100 AS max_grant_application FROM program ORDER BY id DESC LIMIT 0, 25';
-
-        $results = $this->execute($sql);
     }
 
     /**

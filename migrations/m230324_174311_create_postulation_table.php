@@ -13,9 +13,9 @@ class m230324_174311_create_postulation_table extends Migration
     public function safeUp()
     {
         $this->createTable('{{%postulation}}', [
-            'id' => $this->primaryKey(),
+            'id'         => $this->primaryKey(),
             'program_id' => $this->integer()->notNull(),
-            'email' => $this->string()->notNull()->unique(),
+            'email'      => $this->string()->notNull()->unique(),
         ]);
 
         $this->createIndex(

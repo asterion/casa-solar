@@ -15,9 +15,9 @@ class m230324_195556_create_application_table extends Migration
         $this->dropTable('{{%postulation}}');
 
         $this->createTable('{{%grant_application}}', [
-            'id' => $this->primaryKey(),
+            'id'         => $this->primaryKey(),
             'program_id' => $this->integer()->notNull(),
-            'email' => $this->string()->notNull()->unique(),
+            'email'      => $this->string()->notNull()->unique(),
         ]);
 
         $this->createIndex(
