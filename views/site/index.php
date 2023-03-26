@@ -29,15 +29,21 @@ $this->title = 'Programas';
                     <div class="card mb-2<?= ($program['active'] == 0 ? ' text-bg-secondary' : '') ?>">
                         <div class="card-header"><?= $program['name'] ?></div>
                         <div class="card-body">
-                            <h5 class="card-title"></h5>
+                            <h5 class="card-title text-end">
+                                <span class="badge rounded-pill text-bg-dark">
+                                    <?= $program['stage_name'] ?>
+                                </span>
+                            </h5>
                             <p class="card-text"><?= $program['description'] ?></p>
+                            <p class="text-end">
                             <?php if ($program['active'] == 0): ?>
-                                <p>Cupos completados.</p>
+                                Cupos completados.
                             <?php else: ?>
                                 <a href="<?= Url::toRoute(['site/register', 'call_for_application_id' => $program['id']]) ?>" class="btn btn-primary">
                                     Postular
                                 </a>
                             <?php endif; ?>
+                            </p>
                         </div>
                         <div class="card-footer <?= ($program['active'] == 0) ? 'text-white' : 'text-muted'?>">
                             <?php if ($program['active'] == 0): ?>

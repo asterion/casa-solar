@@ -55,6 +55,8 @@ class CallForApplication extends ActiveRecord
             ->select([
                 'call_grant_application_view.id',
                 'call_grant_application_view.program_id',
+                'call_grant_application_view.stage_id',
+                'call_for_application_stage.name AS stage_name',
                 'call_grant_application_view.max_grant_application',
                 'call_grant_application_view.count_grant_application',
                 '(call_grant_application_view.active AND call_grant_application_view.max_grant_application > call_grant_application_view.count_grant_application) AS active',
@@ -63,6 +65,7 @@ class CallForApplication extends ActiveRecord
             ])
             ->from('call_grant_application_view')
             ->join('LEFT JOIN', 'program', 'program.id = call_grant_application_view.program_id')
+            ->join('LEFT JOIN', 'call_for_application_stage', 'call_for_application_stage.id = call_grant_application_view.stage_id')
             ->orderBy('program.name')
             ->all();
 

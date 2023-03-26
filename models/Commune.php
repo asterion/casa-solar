@@ -46,19 +46,15 @@ class Commune extends ActiveRecord
             $commune_counts[$data['commune_id']] = $data['count_grant_application_commune'];
         }
 
-
         $list = [];
 
         foreach ($communes as $commune) {
-            if ( !isset($commune_counts[$commune['id']])
-                || $commune['max_grant_application'] < $commune_counts[$commune['id']] ) {
+            if ( !isset($commune_counts[$commune['id']]) || $commune['max_grant_application'] > $commune_counts[$commune['id']] ) {
                 $list[$commune['id']] = $commune['name'];
             }
         }
 
         return $list;
-
-        return (bool)$active;
     }
 
     public static function getDropdownList()
